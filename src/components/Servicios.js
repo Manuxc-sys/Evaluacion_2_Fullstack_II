@@ -9,57 +9,54 @@ function Servicios() {
         <section id="servicios" className="py-5">
             <Container>
                 <div className="d-flex justify-content-between align-items-baseline mb-4">
-                     <h2 className="mb-0">Servicios</h2>
+                    <h2 className="mb-0">Servicios</h2>
 
-                <p className=" mb-0">Estudio energético, instalación certificada, Monitoreo y mantención</p>
+                    <p className=" mb-0">Estudio energético, instalación certificada, Monitoreo y mantención</p>
 
                 </div>
-               
+
                 <div className="row">
                     <div className="col-lg-3">
                         <Card style={{ width: '18rem' }}>
+                            <Card.Img variant="top" src="analisis.png" />
                             <Card.Body>
                                 <Card.Title>Estudio energético</Card.Title>
                                 <Card.Text>
-                                    Análisis de consumo y propuesta ajustada a tu perfil
+                                    Análisis de consumo y propuesta ajustada a tu perfil.
                                 </Card.Text>
-                                <Button variant="primary">Go somewhere</Button>
                             </Card.Body>
                         </Card>
                     </div>
                     <div className="col-lg-3">
                         <Card style={{ width: '18rem' }}>
+                            <Card.Img variant="top" src="instalacion.png" />
                             <Card.Body>
-                                <Card.Title>Card Title</Card.Title>
+                                <Card.Title>Instalación certificada</Card.Title>
                                 <Card.Text>
-                                    Some quick example text to build on the card title and make up the
-                                    bulk of the card's content.
+                                    Ejecutada por personal acreditado y normativa vigente.
                                 </Card.Text>
-                                <Button variant="primary">Go somewhere</Button>
                             </Card.Body>
                         </Card>
                     </div>
                     <div className="col-lg-3">
                         <Card style={{ width: '18rem' }}>
+                            <Card.Img variant="top" src="monitoreo.png" />
                             <Card.Body>
-                                <Card.Title>Card Title</Card.Title>
+                                <Card.Title>Monitoreo</Card.Title>
                                 <Card.Text>
-                                    Some quick example text to build on the card title and make up the
-                                    bulk of the card's content.
+                                    Seguimiento de rendimiento y alertas preventivas.
                                 </Card.Text>
-                                <Button variant="primary">Go somewhere</Button>
                             </Card.Body>
                         </Card>
                     </div>
                     <div className="col-lg-3">
                         <Card style={{ width: '18rem' }}>
+                            <Card.Img variant="top" src="mantencion.png" />
                             <Card.Body>
-                                <Card.Title>Card Title</Card.Title>
+                                <Card.Title>Mantención</Card.Title>
                                 <Card.Text>
-                                    Some quick example text to build on the card title and make up the
-                                    bulk of the card's content.
+                                    Planes periódicos para extender la vida útil del sistema.
                                 </Card.Text>
-                                <Button variant="primary">Go somewhere</Button>
                             </Card.Body>
                         </Card>
                     </div>
