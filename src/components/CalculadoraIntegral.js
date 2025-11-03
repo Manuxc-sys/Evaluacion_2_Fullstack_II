@@ -134,7 +134,7 @@ function CalculadoraIntegral() {
     return (
         <section id="demo-calculadora" className="py-5 bg-light">
             <Container>
-                <div className='d-flex justify-content-between align-items-baseline mb-4'>
+                <div className='d-flex flex-column flex-md-row justify-content-between align-items-baseline mb-4'>
                     <h3>DEMO calculadora integral</h3>
                 </div>
                 

@@ -7,7 +7,7 @@ function Testimonios() {
     return (
         <section id="testimonios" className="py-5">
             <Container>
-                <div className="d-flex justify-content-between align-items-baseline mb-4">
+                <div className="d-flex flex-column flex-md-row justify-content-between align-items-baseline mb-4">
                     <h2>Testimonios</h2>
 
                     <p className="text-muted">Clientes que ya confían en HelioAndes</p>
@@ -43,7 +43,7 @@ function Testimonios() {
                             <Card.Body>
                                 <Card.Title>Alejandro, Puerto Varas</Card.Title>
                                 <Card.Text>
-                                      Mi sistema solar funciona de maravilla, ¡lo recomiendo totalmente!
+                                      Mi sistema solar funciona de maravilla.
                                 </Card.Text>
                             </Card.Body>
                         </Card>

@@ -4,7 +4,7 @@ function Contacto() {
     return (
         <section id="contacto" className="py-5">
             <div className="container">
-                <div className="d-flex justify-content-between align-items-baseline mb-4">
+                <div className="d-flex flex-column flex-md-row justify-content-between align-items-baseline mb-4">
                     <h2>Contacto</h2>
                     <p className="text-muted">Cuéntanos tu proyecto y agenda una asesoría.</p>
                 </div>

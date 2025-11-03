@@ -8,7 +8,7 @@ function Planes() {
     return (
         <section id="planes" className="py-5">
             <Container>
-                <div className="d-flex justify-content-between align-items-baseline mb-4">
+                <div className="d-flex flex-column flex-md-row justify-content-between align-items-baseline mb-4">
                     <h2>Planes</h2>
 
                     <p className="text-muted">Elije el plan que se adapta a tu proyecto.</p>
