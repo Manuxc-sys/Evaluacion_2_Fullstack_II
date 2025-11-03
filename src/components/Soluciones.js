@@ -1,7 +1,7 @@
 
 import React from "react";
-import { Container } from "react-bootstrap";
-import Card from 'react-bootstrap/Card';
+import { Container, Card, Col, Row } from "react-bootstrap";
+
 
 function Soluciones() {
     return (
@@ -14,43 +14,40 @@ function Soluciones() {
 
                 </div>
 
-                <div className="row">
-                    <div className="col-lg-4">
-                        <Card style={{ width: '18rem' }}>
-                            
-                            <Card.Body>
-                                <Card.Title>Estudio energético</Card.Title>
-                                <Card.Text>
-                                    Análisis de consumo y propuesta ajustada a tu perfil.
-                                </Card.Text>
-                            </Card.Body>
-                        </Card>
-                    </div>
-                    <div className="col-lg-4">
-                        <Card style={{ width: '18rem' }}>
-                           
-                            <Card.Body>
-                                <Card.Title>Instalación certificada</Card.Title>
-                                <Card.Text>
-                                    Ejecutada por personal acreditado y normativa vigente.
-                                </Card.Text>
-                            </Card.Body>
-                        </Card>
-                    </div>
-                    <div className="col-lg-4">
-                        <Card style={{ width: '18rem' }}>
-                            
-                            <Card.Body>
-                                <Card.Title>Monitoreo</Card.Title>
-                                <Card.Text>
-                                    Seguimiento de rendimiento y alertas preventivas.
-                                </Card.Text>
-                            </Card.Body>
-                        </Card>
-                    </div>
-                    
+                <Row className="justify-content-center g-4">
+          <Col xs={12} md={6} lg={4}>
+            <Card className="h-100 shadow-sm">
+              <Card.Body>
+                <Card.Title>Estudio energético</Card.Title>
+                <Card.Text>
+                  Análisis de consumo y propuesta ajustada a tu perfil.
+                </Card.Text>
+              </Card.Body>
+            </Card>
+          </Col>
 
-                </div>
+          <Col xs={12} md={6} lg={4}>
+            <Card className="h-100 shadow-sm">
+              <Card.Body>
+                <Card.Title>Instalación certificada</Card.Title>
+                <Card.Text>
+                  Ejecutada por personal acreditado y normativa vigente.
+                </Card.Text>
+              </Card.Body>
+            </Card>
+          </Col>
+
+          <Col xs={12} md={6} lg={4}>
+            <Card className="h-100 shadow-sm">
+              <Card.Body>
+                <Card.Title>Monitoreo</Card.Title>
+                <Card.Text>
+                  Seguimiento de rendimiento y alertas preventivas.
+                </Card.Text>
+              </Card.Body>
+            </Card>
+          </Col>
+        </Row>
 
 
             </Container>

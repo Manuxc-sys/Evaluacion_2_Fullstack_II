@@ -9,6 +9,7 @@ import Planes from './components/Planes';
 import Testimonios from './components/Testimonios';
 import FAQ from './components/FAQ';
 import Contacto from './components/Contacto';
+import Footer from './components/Footer';
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
         <Testimonios />
         <FAQ/>
         <Contacto/>
+        <Footer />
 
        
       </main>

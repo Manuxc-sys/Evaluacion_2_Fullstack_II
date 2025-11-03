@@ -1,7 +1,7 @@
 
 import React from "react";
-import { Container } from "react-bootstrap";
-import Card from 'react-bootstrap/Card';
+import { Container, Card, Col, Row } from "react-bootstrap";
+
 
 function Testimonios() {
     return (
@@ -14,43 +14,40 @@ function Testimonios() {
 
                 </div>
 
-                <div className="row">
-                    <div className="col-lg-4">
-                        <Card style={{ width: '18rem' }}>
-                            
-                            <Card.Body>
-                                <Card.Title>Alejandra, Ñuñoa</Card.Title>
-                                <Card.Text>
-                                   Instalación rápida y eficiente. ¡Muy satisfecha con el servicio!
-                                </Card.Text>
-                            </Card.Body>
-                        </Card>
-                    </div>
-                    <div className="col-lg-4">
-                        <Card style={{ width: '18rem' }}>
-                           
-                            <Card.Body>
-                                <Card.Title>Macarena, La Florida</Card.Title>
-                                <Card.Text>
-                                   Excelente asesoría y soporte durante todo el proceso.
-                                </Card.Text>
-                            </Card.Body>
-                        </Card>
-                    </div>
-                    <div className="col-lg-4">
-                        <Card style={{ width: '18rem' }}>
-                            
-                            <Card.Body>
-                                <Card.Title>Alejandro, Puerto Varas</Card.Title>
-                                <Card.Text>
-                                      Mi sistema solar funciona de maravilla.
-                                </Card.Text>
-                            </Card.Body>
-                        </Card>
-                    </div>
-                    
+                <Row className="justify-content-center g-4">
+          <Col xs={12} md={6} lg={4}>
+            <Card className="h-100 shadow-sm">
+              <Card.Body className="text-center">
+                <Card.Title>Alejandra, Ñuñoa</Card.Title>
+                <Card.Text className="text-muted">
+                  Instalación rápida y eficiente. ¡Muy satisfecha con el servicio!
+                </Card.Text>
+              </Card.Body>
+            </Card>
+          </Col>
 
-                </div>
+          <Col xs={12} md={6} lg={4}>
+            <Card className="h-100 shadow-sm">
+              <Card.Body className="text-center">
+                <Card.Title>Macarena, La Florida</Card.Title>
+                <Card.Text className="text-muted">
+                  Excelente asesoría y soporte durante todo el proceso.
+                </Card.Text>
+              </Card.Body>
+            </Card>
+          </Col>
+
+          <Col xs={12} md={6} lg={4}>
+            <Card className="h-100 shadow-sm">
+              <Card.Body className="text-center">
+                <Card.Title>Alejandro, Puerto Varas</Card.Title>
+                <Card.Text className="text-muted">
+                  Mi sistema solar funciona de maravilla.
+                </Card.Text>
+              </Card.Body>
+            </Card>
+          </Col>
+        </Row>
 
 
             </Container>

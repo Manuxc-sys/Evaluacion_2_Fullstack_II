@@ -1,7 +1,6 @@
 import React from "react";
-import { Container } from "react-bootstrap";
+import { Container, Row, Col, Card } from "react-bootstrap";
 
-import Card from 'react-bootstrap/Card';
 
 function Servicios() {
     return (
@@ -15,9 +14,10 @@ function Servicios() {
 
                 </div>
 
-                <div className="row">
-                    <div className="col-lg-3">
-                        <Card style={{ width: '18rem' }}>
+                <Row className="justify-content-center g-4">
+                    {/* Cada card en col-12 (móvil), col-md-6 (tablet), col-lg-3 (escritorio) */}
+                    <Col xs={12} md={6} lg={3}>
+                        <Card className="h-100 shadow-sm">
                             <Card.Img variant="top" src="analisis.png" />
                             <Card.Body>
                                 <Card.Title>Estudio energético</Card.Title>
@@ -26,47 +26,48 @@ function Servicios() {
                                 </Card.Text>
                             </Card.Body>
                         </Card>
-                    </div>
-                    <div className="col-lg-3">
-                        <Card style={{ width: '18rem' }}>
+                    </Col>
+
+                    <Col xs={12} md={6} lg={3}>
+                        <Card className="h-100 shadow-sm">
                             <Card.Img variant="top" src="instalacion.png" />
                             <Card.Body>
-                                <Card.Title>Instalación certificada</Card.Title>
+                                <Card.Title>Instalación certificada SEC</Card.Title>
                                 <Card.Text>
-                                    Ejecutada por personal acreditado y normativa vigente.
+                                    Técnicos certificados y cumplimiento normativo.
                                 </Card.Text>
                             </Card.Body>
                         </Card>
-                    </div>
-                    <div className="col-lg-3">
-                        <Card style={{ width: '18rem' }}>
+                    </Col>
+
+                    <Col xs={12} md={6} lg={3}>
+                        <Card className="h-100 shadow-sm">
                             <Card.Img variant="top" src="monitoreo.png" />
                             <Card.Body>
                                 <Card.Title>Monitoreo</Card.Title>
                                 <Card.Text>
-                                    Seguimiento de rendimiento y alertas preventivas.
+                                    Seguimiento en tiempo real desde tu celular.
                                 </Card.Text>
                             </Card.Body>
                         </Card>
-                    </div>
-                    <div className="col-lg-3">
-                        <Card style={{ width: '18rem' }}>
+                    </Col>
+
+                    <Col xs={12} md={6} lg={3}>
+                        <Card className="h-100 shadow-sm">
                             <Card.Img variant="top" src="mantencion.png" />
                             <Card.Body>
                                 <Card.Title>Mantención</Card.Title>
                                 <Card.Text>
-                                    Planes periódicos para extender la vida útil del sistema.
+                                    Servicios programados para máxima eficiencia.
                                 </Card.Text>
                             </Card.Body>
                         </Card>
-                    </div>
-
-                </div>
-
+                    </Col>
+                </Row>
 
             </Container>
 
-        </section>
+        </section >
 
 
     );
