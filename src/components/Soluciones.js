@@ -1,6 +1,6 @@
 
 import React from "react";
-import { Container, Card, Col, Row } from "react-bootstrap";
+import { Container, Card, Col, Row, Button} from "react-bootstrap";
 
 
 function Soluciones() {
@@ -23,6 +23,7 @@ function Soluciones() {
                 <Card.Text>
                   Balance ideal entre costo y ahorro mensual.
                 </Card.Text>
+                <Button as="a" href="#contacto" variant="primary">Solicitar asesoría</Button>
               </Card.Body>
             </Card>
           </Col>
@@ -35,6 +36,7 @@ function Soluciones() {
                 <Card.Text>
                   Para operación continua y eficiente.
                 </Card.Text>
+                <Button as="a" href="#contacto" variant="primary">Solicitar asesoría</Button>
               </Card.Body>
             </Card>
           </Col>
@@ -47,6 +49,7 @@ function Soluciones() {
                 <Card.Text>
                   Autonomía energética en zonas sin conexión.
                 </Card.Text>
+                <Button as="a" href="#contacto" variant="primary">Solicitar asesoría</Button>
               </Card.Body>
             </Card>
           </Col>

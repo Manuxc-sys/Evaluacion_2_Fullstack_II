@@ -27,7 +27,7 @@ function Planes() {
                     Instalación certificada<br />
                     Monitoreo básico
                   </Card.Text>
-                  <Button variant="primary">Solicitar evaluación</Button>
+                  <Button as="a" href="#contacto" variant="primary">Solicitar evaluación</Button>
                 </div>
               </Card.Body>
             </Card>
@@ -45,7 +45,7 @@ function Planes() {
                     Instalación optimizada<br />
                     Monitoreo avanzado
                   </Card.Text>
-                  <Button variant="primary">Solicitar evaluación</Button>
+                  <Button as="a" href="#contacto" variant="primary">Solicitar evaluación</Button>
                 </div>
               </Card.Body>
             </Card>
@@ -63,7 +63,7 @@ function Planes() {
                     Almacenamiento<br />
                     Soporte preferente
                   </Card.Text>
-                  <Button variant="primary">Solicitar evaluación</Button>
+                  <Button as="a" href="#contacto" variant="primary">Solicitar evaluación</Button>
                 </div>
               </Card.Body>
             </Card>
