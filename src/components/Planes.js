@@ -1,82 +1,76 @@
-
-import React from "react";
-import { Container, Card, Col, Row, Button } from "react-bootstrap";
-
+// src/components/Planes.js
+import React, { useState, useEffect } from 'react';
+import { Container, Row, Col, Card, Button } from 'react-bootstrap';
+import axios from 'axios';
 
 function Planes() {
-    return (
-        <section id="planes" className="py-5">
-            <Container>
-                <div className="d-flex flex-column flex-md-row justify-content-between align-items-baseline mb-4">
-                    <h2>Planes</h2>
+  const [planes, setPlanes] = useState([]);
 
-                    <p className="text-muted">Elije el plan que se adapta a tu proyecto.</p>
+  useEffect(() => {
+    axios.get('http://localhost:3002/api/planes')
+      .then(response => setPlanes(response.data))
+      .catch(error => {
+        console.error('Error al cargar planes:', error);
+        // No se hace nada → no hay fallback
+      });
+  }, []);
 
-                </div>
+  // Beneficios fijos por ID (no vienen en Mockoon)
+  const getBeneficios = (id) => {
+    const beneficiosPorPlan = {
+      1: ["Estudio energético", "Instalación certificada", "Monitoreo básico"],
+      2: ["Estudio avanzado", "Instalación optimizada", "Monitoreo avanzado"],
+      3: ["Diseño off-grid", "Almacenamiento", "Soporte preferente"]
+    };
+    return beneficiosPorPlan[id] || [];
+  };
 
-                <Row className="justify-content-center g-4">
-          {/* Plan Básico */}
-          <Col xs={12} md={6} lg={4}>
-            <Card className="h-100 shadow-sm">
-              <Card.Body>
-                <div className="text-center mb-3">
-                  <span className="badge bg-primary mb-2">Básico</span>
-                  <Card.Title>3–5 kW</Card.Title>
-                  <Card.Text>
-                    Estudio energético<br />
-                    Instalación certificada<br />
-                    Monitoreo básico
-                  </Card.Text>
-                  <Button as="a" href="#contacto" variant="primary">Solicitar evaluación</Button>
-                </div>
-              </Card.Body>
-            </Card>
-          </Col>
+  // Título fijo por ID (rango de potencia)
+  const getRangoPotencia = (id) => {
+    const rangos = {
+      1: "3–5 kW",
+      2: "10–15 kW",
+      3: "Híbrido + baterías"
+    };
+    return rangos[id] || "";
+  };
 
-          {/* Plan Optimizado */}
-          <Col xs={12} md={6} lg={4}>
-            <Card className="h-100 shadow-sm">
-              <Card.Body>
-                <div className="text-center mb-3">
-                  <span className="badge bg-primary mb-2">Optimizado</span>
-                  <Card.Title>10–15 kW</Card.Title>
-                  <Card.Text>
-                    Estudio avanzado<br />
-                    Instalación optimizada<br />
-                    Monitoreo avanzado
-                  </Card.Text>
-                  <Button as="a" href="#contacto" variant="primary">Solicitar evaluación</Button>
-                </div>
-              </Card.Body>
-            </Card>
-          </Col>
+  return (
+    <section id="planes" className="py-5">
+      <Container>
+        <div className="d-flex flex-column flex-md-row justify-content-between align-items-baseline mb-4">
+          <h2>Planes</h2>
+          <p className="text-muted">Elije el plan que se adapta a tu proyecto.</p>
+        </div>
 
-          {/* Plan Autónomo */}
-          <Col xs={12} md={6} lg={4}>
-            <Card className="h-100 shadow-sm">
-              <Card.Body>
-                <div className="text-center mb-3">
-                  <span className="badge bg-primary mb-2">Autónomo</span>
-                  <Card.Title>Híbrido + baterías</Card.Title>
-                  <Card.Text>
-                    Diseño off-grid<br />
-                    Almacenamiento<br />
-                    Soporte preferente
-                  </Card.Text>
-                  <Button as="a" href="#contacto" variant="primary">Solicitar evaluación</Button>
-                </div>
-              </Card.Body>
-            </Card>
-          </Col>
+        <Row className="justify-content-center g-4">
+          {planes.map((plan) => (
+            <Col key={plan.id} xs={12} md={6} lg={4}>
+              <Card className="h-100 shadow-sm">
+                <Card.Body>
+                  <div className="text-center mb-3">
+                    <span className="badge bg-primary mb-2">{plan.nombre}</span>
+                    <Card.Title>{getRangoPotencia(plan.id)}</Card.Title>
+                    <Card.Text>
+                      {getBeneficios(plan.id).map((b, i) => (
+                        <React.Fragment key={i}>
+                          {b}
+                          <br />
+                        </React.Fragment>
+                      ))}
+                    </Card.Text>
+                    <Button as="a" href="#contacto" variant="primary" className="w-100">
+                      Solicitar evaluación
+                    </Button>
+                  </div>
+                </Card.Body>
+              </Card>
+            </Col>
+          ))}
         </Row>
-
-
-            </Container>
-
-        </section>
-
-
-    );
-
+      </Container>
+    </section>
+  );
 }
+
 export default Planes;

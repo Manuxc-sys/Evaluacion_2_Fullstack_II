@@ -1,6 +1,9 @@
+// src/App.js
 import React from 'react';
-import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
+
+// Landing
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Servicios from './components/Servicios';
@@ -11,13 +14,18 @@ import Testimonios from './components/Testimonios';
 import FAQ from './components/FAQ';
 import Contacto from './components/Contacto';
 import Footer from './components/Footer';
-import DashboardLTE from './components/adminLTE/DashboardLTE';
 
+// Admin: componentes completos (navbar + sidebar + contenido)
+import ServiciosAdmin from './components/adminLTE/Servicios';      // ← Nuevo
+import ServicioDetail from './components/adminLTE/ServicioDetail'; // ← Nuevo
+import PlanesAdmin from './components/adminLTE/Planes';          // ← Crearás después
+import PlanDetail from './components/adminLTE/PlanDetail';       // ← Crearás después
 
 function App() {
   return (
     <Router>
       <Routes>
+        {/* Landing pública */}
         <Route
           path="/"
           element={
@@ -37,7 +45,13 @@ function App() {
             </div>
           }
         />
-        <Route path="/admin/*" element={<DashboardLTE />} />
+
+        {/* Rutas del dashboard: cada una es un componente completo */}
+        <Route path="/admin" element={<ServiciosAdmin />} />
+        <Route path="/admin/servicios" element={<ServiciosAdmin />} />
+        <Route path="/admin/servicios/:id" element={<ServicioDetail />} />
+        <Route path="/admin/planes" element={<PlanesAdmin />} />
+        <Route path="/admin/planes/:id" element={<PlanDetail />} />
       </Routes>
     </Router>
   );

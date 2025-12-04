@@ -1,78 +1,57 @@
-import React from "react";
-import { Container, Row, Col, Card } from "react-bootstrap";
-
+// src/components/Servicios.js
+import React, { useState, useEffect } from 'react';
+import { Container, Row, Col, Card } from 'react-bootstrap';
+import axios from 'axios';
 
 function Servicios() {
-    return (
+  const [servicios, setServicios] = useState([]);
 
-        <section id="servicios" className="py-5">
-            <Container>
-                <div className="d-flex flex-column flex-md-row justify-content-between align-items-baseline mb-4">
-                    <h2>Servicios</h2>
+  useEffect(() => {
+    axios.get('http://localhost:3002/api/servicios')
+      .then(response => setServicios(response.data))
+      .catch(error => {
+        console.error('Error al cargar servicios:', error);
+        // No se muestra nada si falla → cumple con "no usar fallback"
+      });
+  }, []);
 
-                    <p className=" text-muted">Estudio energético, instalación certificada, Monitoreo y mantención</p>
+  // Mapeo fijo de imágenes por ID (no viene en Mockoon)
+  const getImagen = (id) => {
+    const imagenes = {
+      1: 'analisis.png',
+      2: 'instalacion.png',
+      3: 'monitoreo.png',
+      4: 'mantencion.png'
+    };
+    return imagenes[id] || 'servicio-default.png';
+  };
 
-                </div>
+  return (
+    <section id="servicios" className="py-5">
+      <Container>
+        <div className="d-flex flex-column flex-md-row justify-content-between align-items-baseline mb-4">
+          <h2>Servicios</h2>
+          <p className="text-muted">
+            Estudio energético, instalación certificada, Monitoreo y mantención
+          </p>
+        </div>
 
-                <Row className="justify-content-center g-4">
-                    {/* Cada card en col-12 (móvil), col-md-6 (tablet), col-lg-3 (escritorio) */}
-                    <Col xs={12} md={6} lg={3}>
-                        <Card className="h-100 shadow-sm">
-                            <Card.Img variant="top" src="analisis.png" />
-                            <Card.Body>
-                                <Card.Title>Estudio energético</Card.Title>
-                                <Card.Text>
-                                    Análisis de consumo y propuesta ajustada a tu perfil.
-                                </Card.Text>
-                            </Card.Body>
-                        </Card>
-                    </Col>
-
-                    <Col xs={12} md={6} lg={3}>
-                        <Card className="h-100 shadow-sm">
-                            <Card.Img variant="top" src="instalacion.png" />
-                            <Card.Body>
-                                <Card.Title>Instalación certificada SEC</Card.Title>
-                                <Card.Text>
-                                    Técnicos certificados y cumplimiento normativo.
-                                </Card.Text>
-                            </Card.Body>
-                        </Card>
-                    </Col>
-
-                    <Col xs={12} md={6} lg={3}>
-                        <Card className="h-100 shadow-sm">
-                            <Card.Img variant="top" src="monitoreo.png" />
-                            <Card.Body>
-                                <Card.Title>Monitoreo</Card.Title>
-                                <Card.Text>
-                                    Seguimiento en tiempo real desde tu celular.
-                                </Card.Text>
-                            </Card.Body>
-                        </Card>
-                    </Col>
-
-                    <Col xs={12} md={6} lg={3}>
-                        <Card className="h-100 shadow-sm">
-                            <Card.Img variant="top" src="mantencion.png" />
-                            <Card.Body>
-                                <Card.Title>Mantención</Card.Title>
-                                <Card.Text>
-                                    Servicios programados para máxima eficiencia.
-                                </Card.Text>
-                            </Card.Body>
-                        </Card>
-                    </Col>
-                </Row>
-
-            </Container>
-
-        </section >
-
-
-    );
-
-
+        <Row className="justify-content-center g-4">
+          {servicios.map((servicio) => (
+            <Col key={servicio.id} xs={12} md={6} lg={3}>
+              <Card className="h-100 shadow-sm">
+                <Card.Img variant="top" src={getImagen(servicio.id)} />
+                <Card.Body>
+                  <Card.Title>{servicio.nombre}</Card.Title>
+                  <Card.Text>{servicio.descripcion}</Card.Text>
+                </Card.Body>
+              </Card>
+            </Col>
+          ))}
+        </Row>
+      </Container>
+    </section>
+  );
 }
 
 export default Servicios;
