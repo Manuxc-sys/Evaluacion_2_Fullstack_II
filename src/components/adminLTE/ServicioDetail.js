@@ -11,10 +11,14 @@ function ServicioDetail() {
   const [servicio, setServicio] = useState(null);
 
   useEffect(() => {
-    // Obtenemos el servicio directamente por ID desde Mockoon (tal como pide el PDF)
-    axios.get(`http://localhost:3002/api/servicios/${id}`)
+    axios.get('http://localhost:3002/api/servicios')
       .then(response => {
-        setServicio(response.data);
+        const servicioEncontrado = response.data.find(s => s.id == id);
+        if (servicioEncontrado) {
+          setServicio(servicioEncontrado);
+        } else {
+          throw new Error("No encontrado");
+        }
       })
       .catch(error => {
         console.error("Error al cargar el servicio:", error);
@@ -43,7 +47,6 @@ function ServicioDetail() {
     <div className="wrapper">
       <NavbarDash />
       <Sidebar />
-      
       <div className="content-wrapper">
         <section className="content-header">
           <div className="container-fluid">
@@ -60,7 +63,6 @@ function ServicioDetail() {
             </div>
           </div>
         </section>
-
         <section className="content">
           <div className="card card-primary card-outline">
             <div className="card-header">
@@ -71,7 +73,6 @@ function ServicioDetail() {
             </div>
             <div className="card-body">
               <div className="row">
-                {/* Contenido principal */}
                 <div className="col-12 col-md-8">
                   <h3 className="text-primary">
                     <i className="fas fa-cogs"></i> {servicio.nombre}
@@ -80,16 +81,12 @@ function ServicioDetail() {
                     {servicio.descripcion}
                   </p>
                 </div>
-
-                {/* Panel lateral */}
                 <div className="col-12 col-md-4 border-left">
                   <h5 className="text-muted">Estado</h5>
                   <div className="callout callout-success">
                     <p>Activo en la landing pública.</p>
                   </div>
-                  
                   <hr />
-                  
                   <button 
                     className="btn btn-secondary btn-block"
                     onClick={() => navigate('/admin/servicios')}
